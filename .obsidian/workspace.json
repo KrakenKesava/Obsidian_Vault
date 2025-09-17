@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Assessment Methodologies.md",
+                "file": "Active Information Gathering.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Assessment Methodologies"
+              "title": "Active Information Gathering"
             }
           },
           {
@@ -45,8 +45,7 @@
               "title": "Graph view"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -192,15 +191,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "a99dfa72918ad4e0",
+  "active": "605222c4d2d586e1",
   "lastOpenFiles": [
-    "README.md",
-    "Host & Network Auditing.md",
-    "Vulnerability Assessment.md",
     "Assessment Methodologies.md",
     "Enumeration.md",
     "Networking and Enumeration.md",
+    "Vulnerability Assessment.md",
+    "Pasted image 20250918022533.png",
     "Active Information Gathering.md",
+    "README.md",
+    "Host & Network Auditing.md",
     "Passive Information Gathering.md",
     "Network-based attacks.md",
     "Pasted image 20250917231037.png",
@@ -221,7 +221,6 @@
     "Pasted image 20250916121412.png",
     "Pasted image 20250916120855.png",
     "Screenshot_2025-09-15_10_56_25.png",
-    "Screenshot_2025-09-15_10_56_20.png",
     "LM_working.md",
     "eJPT.md",
     "<h1> Windows Privilage Escalation </h1>.md",
