@@ -8,41 +8,31 @@
         "type": "tabs",
         "children": [
           {
-            "id": "605222c4d2d586e1",
+            "id": "9cf35c1724d2758d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Active Information Gathering.md",
+                "file": "The Metasploit Framework(MSF).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Active Information Gathering"
+              "title": "The Metasploit Framework(MSF)"
             }
           },
           {
-            "id": "44d8b2cbdd4fc1bd",
+            "id": "daa321801a023187",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Vulnerability Assessment.md",
+                "file": "Windows Privilege Escalation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Vulnerability Assessment"
-            }
-          },
-          {
-            "id": "a99dfa72918ad4e0",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "title": "Windows Privilege Escalation"
             }
           }
         ]
@@ -64,7 +54,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "byModifiedTimeReverse",
+                "sortOrder": "alphabetical",
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
@@ -102,7 +92,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "c896f9710359d1ce",
@@ -191,28 +182,28 @@
       "bases:Create new base": false
     }
   },
-  "active": "605222c4d2d586e1",
+  "active": "9cf35c1724d2758d",
   "lastOpenFiles": [
-    "Assessment Methodologies.md",
+    "Windows Privilege Escalation.md",
+    "The Metasploit Framework(MSF).md",
+    "Network-based attacks.md",
+    "Active Information Gathering.md",
     "Enumeration.md",
+    "Assessment Methodologies.md",
     "Networking and Enumeration.md",
     "Vulnerability Assessment.md",
     "Pasted image 20250918022533.png",
-    "Active Information Gathering.md",
     "README.md",
     "Host & Network Auditing.md",
     "Passive Information Gathering.md",
-    "Network-based attacks.md",
     "Pasted image 20250917231037.png",
     "Pasted image 20250917230904.png",
     "Pasted image 20250917203034.png",
     "Pasted image 20250917203022.png",
     "Screenshot_2025-09-17_13_45_15 1.png",
     "Screenshot_2025-09-17_13_45_15.png",
-    "Windows Privilege Escalation.md",
     "System-Host based attacks.md",
     "Exploiting Windows Vulnerabilities.md",
-    "The Metasploit Framework(MSF).md",
     "Host & Network Penetration Testing.md",
     "Linux Credentials Dumping.md",
     "Linux Privilege Escalation.md",
