@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "The Metasploit Framework(MSF).md",
+                "file": "Exploitation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The Metasploit Framework(MSF)"
+              "title": "Exploitation"
             }
           }
         ]
@@ -170,9 +170,9 @@
   },
   "active": "9cf35c1724d2758d",
   "lastOpenFiles": [
+    "The Metasploit Framework(MSF).md",
     "Web Application Penetration Testing.md",
     "Social Engineering.md",
-    "The Metasploit Framework(MSF).md",
     "Windows Privilege Escalation.md",
     "Network-based attacks.md",
     "Active Information Gathering.md",
