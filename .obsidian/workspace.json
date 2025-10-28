@@ -8,35 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a5c6a09603a1905a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Web Application Penetration Testing.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Web Application Penetration Testing"
-            }
-          },
-          {
             "id": "9cf35c1724d2758d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exploitation.md",
+                "file": "Post-Exploitation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Exploitation"
+              "title": "Post-Exploitation"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -185,9 +170,10 @@
   },
   "active": "9cf35c1724d2758d",
   "lastOpenFiles": [
+    "Exploitation.md",
+    "Post-Exploitation.md",
     "Web Application Penetration Testing.md",
     "Network-based attacks.md",
-    "Exploitation.md",
     "The Metasploit Framework(MSF).md",
     "Social Engineering.md",
     "Windows Privilege Escalation.md",
@@ -219,7 +205,6 @@
     "LM_working.md",
     "eJPT.md",
     "<h1> Windows Privilage Escalation </h1>.md",
-    "<h1> Windows Privilage Escalation <",
-    "Post-Exploitation.md"
+    "<h1> Windows Privilage Escalation <"
   ]
 }
